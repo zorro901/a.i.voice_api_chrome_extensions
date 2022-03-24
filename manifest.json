@@ -1,0 +1,33 @@
+﻿{
+  "name": "A.I.Voice Reader",
+  "version": "1.0",
+  "manifest_version": 3,
+  "description": "A.I.Voice Reader use API",
+  "permissions": [
+    "contextMenus",
+    "scripting",
+    "activeTab"
+  ],
+  "host_permissions": [
+    "http://locahost/*"
+  ],
+  "background": {
+    "service_worker": "event.js"
+  },
+  "icons": {
+    "icon": "icon_32x32.png"
+  },
+  "externally_connectable": {
+    "matches": [
+      "http://server/*"
+    ]
+  },
+  "commands": {
+    "sendText": {
+      "suggested_key": {
+        "default": "Alt+C"
+      },
+      "description": "A.I.Voice Send Data"
+    }
+  }
+}
