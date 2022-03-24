@@ -1,6 +1,6 @@
 ﻿const url = "http://127.0.0.1:8000"
 
-chrome.runtime.onInstalled.addEventListener(() => {
+chrome.runtime.onInstalled.addListener(() => {
   chrome.contextMenus.create({
     id: 'Chapter 6',
     title: 'Send A.I.Voice for \'%s\'',
@@ -8,7 +8,7 @@ chrome.runtime.onInstalled.addEventListener(() => {
     contexts: ['selection']
   });
 });
-chrome.contextMenus.onClicked.addEventListener(async (info) => {
+chrome.contextMenus.onClicked.addListener(async (info) => {
   await fetch(`${url}/voice-reading-stop`,{mode:"no-cors"}
   ).then(e => e.status === 200).catch(() => {
     return false
@@ -29,7 +29,7 @@ async function getCurrentTab() {
 
 
 let value;
-chrome.runtime.onMessage.addEventListener(async (message, sender, sendResponse) =>{
+chrome.runtime.onMessage.addListener(async (message, sender, sendResponse) =>{
   switch (message.method){
     case 'Send':
       value = message.value
@@ -58,7 +58,7 @@ async function injectedFunction_egrave () {
 }
 
 // Listen for hotkey shortcut command
-chrome.commands.onCommand.addEventListener(() => {
+chrome.commands.onCommand.addListener(() => {
   getCurrentTab().then(async function (tab) {
     chrome.scripting.executeScript({
       target: { tabId: tab.id },

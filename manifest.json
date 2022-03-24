@@ -15,7 +15,7 @@
     "service_worker": "event.js"
   },
   "icons": {
-    "icon": "icon_32x32.png"
+    "32": "icon_32x32.png"
   },
   "externally_connectable": {
     "matches": [
